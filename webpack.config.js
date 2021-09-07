@@ -1,11 +1,14 @@
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
     mode: "none",
     entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, "./public"),
+        path: path.resolve(__dirname, "./dist"),
         filename: "build.js",
+        clean: true,
     },
     module: {
         rules: [
@@ -32,6 +35,13 @@ const config = {
             },
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: "index.html", // output file name
+            template: "index.html", // template file name
+        }),
+        new MiniCssExtractPlugin({ filename: "app.css" }),
+    ],
     devtool: "source-map",
 };
 
