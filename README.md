@@ -12,12 +12,16 @@ Webpack과 Babel, source-map을 연동하여 프론트엔드 개발환경 Settin
 
 <br>
 
+### webpack 관련 모듈 설치
+
 ```jsx
 //webpack과 webpack-cli, webpack-dev-server를 dev Dependency로 설치
 npm install -D webpack webpack-cli webpack-dev-server
 ```
 
 <br>
+
+### webpack 설정 파일
 
 ```jsx
 //webpack.config.js
@@ -73,12 +77,16 @@ module.exports = config;
 
 <br>
 
+### webpack 과 babel 연동을 위한 의존성 설치
+
 ```jsx
 //babel 연동
 npm i @babel/core @babel/cli @babel/preset-env -D
 ```
 
 <br>
+
+### babel 설정 파일 저장
 
 ```jsx
 //babel.config.js
@@ -102,6 +110,8 @@ module.exports = function (api) {
 
 <br>
 
+### webpack 내에서 사용될 loader 설치
+
 ```jsx
 //file 로더 설치
 npm i file-loader -D
@@ -111,6 +121,8 @@ npm i css-loader sass-loader -D
 ```
 
 <br>
+
+### webpack plugin 설치
 
 ```jsx
 //plugin 설치
