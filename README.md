@@ -13,8 +13,8 @@ Webpack과 Babel, source-map을 연동하여 프론트엔드 개발환경 Settin
 <br>
 
 ```jsx
-//webpack과 webpack-cli를 dev Dependency로 설치
-npm install -D webpack webpack-cli
+//webpack과 webpack-cli, webpack-dev-server를 dev Dependency로 설치
+npm install -D webpack webpack-cli webpack-dev-server
 ```
 
 <br>
@@ -22,13 +22,16 @@ npm install -D webpack webpack-cli
 ```jsx
 //webpack.config.js
 const path = require("path");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const config = {
     mode: "none",
     entry: "./src/index.js",
     output: {
-        path: path.resolve(__dirname, "./public"),
+        path: path.resolve(__dirname, "./dist"),
         filename: "build.js",
+        clean: true,
     },
     module: {
         rules: [
@@ -55,6 +58,13 @@ const config = {
             },
         ],
     },
+    plugins: [
+        new HtmlWebpackPlugin({
+            filename: "index.html", // output file name
+            template: "index.html", // template file name
+        }),
+        new MiniCssExtractPlugin({ filename: "app.css" }),
+    ],
     devtool: "source-map",
 };
 
@@ -101,3 +111,8 @@ npm i css-loader sass-loader -D
 ```
 
 <br>
+
+```jsx
+//plugin 설치
+npm i mini-css-extract-plugin html-webpack-plugin -D
+```
